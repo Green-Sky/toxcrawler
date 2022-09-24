@@ -31,7 +31,8 @@
 #include <unistd.h>
 
 #include <tox/tox.h>
-#include "../../../toxcore/toxcore/tox_private.h"
+//#include "../../../toxcore/toxcore/tox_private.h"
+#include "toxcore/tox_private.h"
 
 #include "util.h"
 
@@ -194,7 +195,7 @@ void cb_getnodes_response(Tox *tox, const uint8_t *public_key, const char *ip, u
     cwl->nodes_list[cwl->num_nodes++] = new_node;
     cwl->last_new_node = get_time();
 
-    // fprintf(stderr, "Node %u: %s:%u\n", cwl->num_nodes, ip, port);
+    fprintf(stderr, "Node %u: %s:%u\n", cwl->num_nodes, ip, port);
 }
 
 /*

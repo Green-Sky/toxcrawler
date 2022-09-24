@@ -1,7 +1,9 @@
 LIBS = toxcore
-CFLAGS = -std=gnu99 -Wall -ggdb -fstack-protector-all -pthread
+CFLAGS = -std=gnu99 -Wall -ggdb -fstack-protector-all -pthread -O2
+CFLAGS += -I../../toxcore/
 OBJ = main.o util.o
-LDFLAGS = $(shell pkg-config --libs $(LIBS))
+#LDFLAGS = $(shell pkg-config --libs $(LIBS))
+LDFLAGS ?= -L../../toxcore/build -ltoxcore
 SRC_DIR = ./src
 
 all: $(OBJ)
